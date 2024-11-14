@@ -25,15 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedSemester = programSemester.value;
 
     // Filter values based on current input
-    let filteredValues = College_Data
-      .filter(item => {
-        const value = item[capitalizeFirstLetter(selectedType)]?.toLowerCase() || '';
-        const matchesSemester = selectedType !== 'programme' || 
-                              selectedSemester === 'all' || 
-                              item.Sem.toString() === selectedSemester;
-        return value.includes(searchValue) && matchesSemester;
-      })
-      .map(item => item[capitalizeFirstLetter(selectedType)]);
+    let filteredValues = College_Data.filter((item) => {
+      const value =
+        item[capitalizeFirstLetter(selectedType)]?.toLowerCase() || "";
+      const matchesSemester =
+        selectedType !== "programme" ||
+        selectedSemester === "all" ||
+        item.Sem.toString() === selectedSemester;
+      return value.includes(searchValue) && matchesSemester;
+    }).map((item) => item[capitalizeFirstLetter(selectedType)]);
 
     // Get unique values
     const uniqueValues = [...new Set(filteredValues)];
@@ -53,38 +53,41 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function filterResults() {
-    const searchType = document.getElementById('searchType').value;
-    const searchValue = document.getElementById('searchInput').value.toLowerCase();
-    const sessionFilter = document.getElementById('sessionFilter').value;
-    const semesterFilter = document.getElementById('programSemester').value;
-    
+    const searchType = document.getElementById("searchType").value;
+    const searchValue = document
+      .getElementById("searchInput")
+      .value.toLowerCase();
+    const sessionFilter = document.getElementById("sessionFilter").value;
+    const semesterFilter = document.getElementById("programSemester").value;
+
     // Pehle normal filtering karenge
-    let filteredData = College_Data.filter(exam => {
-        const sessionMatch = sessionFilter === 'all' || exam.Session === sessionFilter;
-        let searchMatch = false;
-        let semesterMatch = true;
+    let filteredData = College_Data.filter((exam) => {
+      const sessionMatch =
+        sessionFilter === "all" || exam.Session === sessionFilter;
+      let searchMatch = false;
+      let semesterMatch = true;
 
-        if (searchType === 'subject') {
-            searchMatch = exam.Subject.toLowerCase().includes(searchValue);
-        } else if (searchType === 'programme') {
-            searchMatch = exam.Programme.toLowerCase().includes(searchValue);
-            if (semesterFilter !== 'all') {
-                semesterMatch = exam.Sem.toString() === semesterFilter;
-            }
-        } else if (searchType === 'sem') {
-            searchMatch = exam.Sem.toString().toLowerCase().includes(searchValue);
+      if (searchType === "subject") {
+        searchMatch = exam.Subject.toLowerCase().includes(searchValue);
+      } else if (searchType === "programme") {
+        searchMatch = exam.Programme.toLowerCase().includes(searchValue);
+        if (semesterFilter !== "all") {
+          semesterMatch = exam.Sem.toString() === semesterFilter;
         }
+      } else if (searchType === "sem") {
+        searchMatch = exam.Sem.toString().toLowerCase().includes(searchValue);
+      }
 
-        return searchMatch && sessionMatch && semesterMatch;
+      return searchMatch && sessionMatch && semesterMatch;
     });
 
     // Ab duplicate entries ko remove karenge
     const uniqueData = filteredData.reduce((acc, current) => {
-        const isDuplicate = acc.find(item => item.PaperId === current.PaperId);
-        if (!isDuplicate) {
-            acc.push(current);
-        }
-        return acc;
+      const isDuplicate = acc.find((item) => item.PaperId === current.PaperId);
+      if (!isDuplicate) {
+        acc.push(current);
+      }
+      return acc;
     }, []);
 
     displayResults(uniqueData);
@@ -150,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   searchType.addEventListener("change", () => {
     createDatalist();
     searchInput.value = "";
-    
+
     if (searchType.value === "programme") {
       programSemFilter.style.display = "block";
     } else {
@@ -196,18 +199,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to update semester options based on selected programme
   function updateSemesterOptions(programme) {
     if (!programme) return;
-    
+
     // Get unique semesters for the selected programme
-    const semesters = [...new Set(
-      College_Data
-        .filter(exam => exam.Programme.toLowerCase() === programme.toLowerCase())
-        .map(exam => exam.Sem)
-    )].sort((a, b) => a - b);
+    const semesters = [
+      ...new Set(
+        College_Data.filter(
+          (exam) => exam.Programme.toLowerCase() === programme.toLowerCase()
+        ).map((exam) => exam.Sem)
+      ),
+    ].sort((a, b) => a - b);
 
     // Update semester dropdown
     programSemester.innerHTML = '<option value="all">All Semesters</option>';
-    semesters.forEach(sem => {
-      const option = document.createElement('option');
+    semesters.forEach((sem) => {
+      const option = document.createElement("option");
       option.value = sem;
       option.textContent = ` ${sem}`;
       programSemester.appendChild(option);

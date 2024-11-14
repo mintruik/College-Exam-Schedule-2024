@@ -56,7 +56,7 @@ select, input, button {
 
 select {
     background-color: white;
-    min-width: 180px;
+    /* min-width: 180px; */
 }
 
 input {
@@ -87,7 +87,7 @@ button:hover {
 .filter-group {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.2rem;
 }
 
 .results {
