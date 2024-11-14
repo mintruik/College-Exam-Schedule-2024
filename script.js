@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     semesters.forEach(sem => {
       const option = document.createElement('option');
       option.value = sem;
-      option.textContent = `Semester ${sem}`;
+      option.textContent = ` ${sem}`;
       programSemester.appendChild(option);
     });
   }
