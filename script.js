@@ -52,29 +52,33 @@ document.addEventListener("DOMContentLoaded", () => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  function filterExams() {
-    const searchValue = searchInput.value.toLowerCase();
-    const selectedType = capitalizeFirstLetter(searchType.value);
-    const selectedSession = sessionFilter.value;
-    const selectedSemester = programSemester.value;
+  function filterResults() {
+    const searchType = document.getElementById('searchType').value;
+    const searchValue = document.getElementById('searchInput').value.toLowerCase();
+    const sessionFilter = document.getElementById('sessionFilter').value;
+    const semesterFilter = document.getElementById('programSemester').value;
+    
+    let filteredData = College_Data.filter(exam => {
+        const sessionMatch = sessionFilter === 'all' || exam.Session === sessionFilter;
+        let searchMatch = false;
+        let semesterMatch = true;
 
-    const filteredData = College_Data.filter((exam) => {
-      const examValue = exam[selectedType]?.toLowerCase() || "";
-      const matchesSearch = examValue.includes(searchValue);
-      const matchesSession = selectedSession === "all" || exam.Session === selectedSession;
-      const matchesSemester = selectedSemester === "all" || exam.Sem.toString() === selectedSemester;
-      
-      return matchesSearch && matchesSession && 
-             (selectedType !== "programme" || matchesSemester);
+        if (searchType === 'subject') {
+            searchMatch = exam.Subject.toLowerCase().includes(searchValue);
+        } else if (searchType === 'programme') {
+            searchMatch = exam.Programme.toLowerCase().includes(searchValue);
+            // Semester filter sirf tab apply hoga jab programme search type ho
+            if (semesterFilter !== 'all') {
+                semesterMatch = exam.Sem.toString() === semesterFilter;
+            }
+        } else if (searchType === 'sem') {
+            searchMatch = exam.Sem.toString().toLowerCase().includes(searchValue);
+        }
+
+        return searchMatch && sessionMatch && semesterMatch;
     });
 
-    const uniqueExams = filteredData.reduce((acc, current) => {
-      const x = acc.find((item) => item.PaperId === current.PaperId);
-      if (!x) return acc.concat([current]);
-      return acc;
-    }, []);
-
-    displayResults(uniqueExams);
+    displayResults(filteredData);
   }
 
   function displayResults(exams) {
@@ -146,18 +150,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Event listeners
-  searchBtn.addEventListener("click", filterExams);
+  searchBtn.addEventListener("click", filterResults);
   searchInput.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
-      filterExams();
+      filterResults();
     } else {
       // Real-time filtering as user types
       if (searchInput.value.length >= 2) {
-        filterExams();
+        filterResults();
       }
     }
   });
-  sessionFilter.addEventListener("change", filterExams);
+  sessionFilter.addEventListener("change", filterResults);
   resetBtn.addEventListener("click", resetAll);
 
   // Add new event listeners
@@ -168,11 +172,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Real-time filtering
     if (searchInput.value.length >= 2) {
-      filterExams();
+      filterResults();
     }
   });
 
-  programSemester.addEventListener("change", filterExams);
+  programSemester.addEventListener("change", filterResults);
 
   // Initialize autocomplete
   createDatalist();
