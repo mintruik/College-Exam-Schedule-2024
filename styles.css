@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    color: #1a1a1a;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+select, input, button {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+select {
+    background-color: white;
+    min-width: 180px;
+}
+
+input {
+    flex: 1;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 120px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.filters {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.results {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.exam-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.exam-card:hover {
+    transform: translateY(-5px);
+}
+
+.exam-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.exam-info {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.exam-info p {
+    color: #666;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.exam-info p span:first-child {
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.session-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.session-morning {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.session-evening {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Style the datalist dropdown */
+input::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+input::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Style the search input */
+#searchInput {
+    background-color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+/* Add loading indicator */
+.search-box {
+    position: relative;
+}
+
+.search-box::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-top-color: #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+.search-box.loading::after {
+    display: block;
+}
+
+@keyframes spin {
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.reset-btn {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.reset-btn:hover {
+    background-color: #ff1744;
+} 
