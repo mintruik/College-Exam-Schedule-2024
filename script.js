@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sessionFilter = document.getElementById('sessionFilter').value;
     const semesterFilter = document.getElementById('programSemester').value;
     
+    // Pehle normal filtering karenge
     let filteredData = College_Data.filter(exam => {
         const sessionMatch = sessionFilter === 'all' || exam.Session === sessionFilter;
         let searchMatch = false;
@@ -67,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchMatch = exam.Subject.toLowerCase().includes(searchValue);
         } else if (searchType === 'programme') {
             searchMatch = exam.Programme.toLowerCase().includes(searchValue);
-            // Semester filter sirf tab apply hoga jab programme search type ho
             if (semesterFilter !== 'all') {
                 semesterMatch = exam.Sem.toString() === semesterFilter;
             }
@@ -78,7 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return searchMatch && sessionMatch && semesterMatch;
     });
 
-    displayResults(filteredData);
+    // Ab duplicate entries ko remove karenge
+    const uniqueData = filteredData.reduce((acc, current) => {
+        const isDuplicate = acc.find(item => item.PaperId === current.PaperId);
+        if (!isDuplicate) {
+            acc.push(current);
+        }
+        return acc;
+    }, []);
+
+    displayResults(uniqueData);
   }
 
   function displayResults(exams) {
