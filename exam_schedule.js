@@ -1228,7 +1228,7 @@ const College_Data = [
     PaperId: "16527",
   },
   {
-    Date: "11-12-2024",
+    Date: "13-12-2024",
     Session: "Morning",
     Programme: "Bachelor of Arts (Honors Economics)",
     Sem: "Semester 3",
