@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import rough from 'roughjs';
 import './index.css';
 
 const EconomicHistory = () => {
   const navigate = useNavigate();
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
+    if (canvasRef.current && containerRef.current) {
+      const rc = rough.canvas(canvasRef.current);
+      const container = containerRef.current;
+      
+      canvasRef.current.width = container.offsetWidth;
+      canvasRef.current.height = container.offsetHeight;
+      
+      // Draw decorative elements
+      rc.rectangle(10, 10, container.offsetWidth - 20, container.offsetHeight - 20, {
+        stroke: '#4CAF50',
+        strokeWidth: 2,
+        roughness: 1.5,
+        fill: 'rgba(76, 175, 80, 0.05)'
+      });
+
+      // Draw unit separators
+      const unitHeight = (container.offsetHeight - 100) / 4;
+      for (let i = 1; i < 4; i++) {
+        rc.line(40, 100 + (unitHeight * i), container.offsetWidth - 40, 100 + (unitHeight * i), {
+          stroke: '#4CAF50',
+          strokeWidth: 1,
+          roughness: 1
+        });
+      }
+    }
+  }, []);
 
   const suggestedReadings = [
     {
@@ -42,7 +76,8 @@ const EconomicHistory = () => {
   };
 
   return (
-    <div className="course-container">
+    <div className="course-container" ref={containerRef}>
+      <canvas ref={canvasRef} className="background-canvas" />
       <button onClick={handleBack} className="back-button">
         ← Back to Subjects
       </button>

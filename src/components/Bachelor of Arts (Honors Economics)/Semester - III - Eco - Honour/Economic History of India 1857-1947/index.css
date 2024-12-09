@@ -5,6 +5,7 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: relative;
 }
 
 .course-header {
@@ -52,6 +53,8 @@
 
 .course-content {
   padding: 1rem 0;
+  position: relative;
+  z-index: 1;
 }
 
 .units {
@@ -62,10 +65,17 @@
 }
 
 .unit {
-  background: #f8f9fa;
+  position: relative;
+  z-index: 1;
+  background: rgba(248, 249, 250, 0.9);
   padding: 1.5rem;
   border-radius: 8px;
   border-left: 4px solid #4CAF50;
+  transition: transform 0.2s ease;
+}
+
+.unit:hover {
+  transform: translateX(5px);
 }
 
 .unit h2 {
@@ -82,7 +92,9 @@
 }
 
 .note-section {
-  background: #fff8e1;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 248, 225, 0.9);
   padding: 1.5rem;
   border-radius: 8px;
   margin-bottom: 2.5rem;
@@ -107,7 +119,9 @@
 }
 
 .readings-section {
-  background: #f8f9fa;
+  position: relative;
+  z-index: 1;
+  background: rgba(248, 249, 250, 0.9);
   padding: 1.5rem;
   border-radius: 8px;
 }
@@ -193,4 +207,14 @@
 
 .back-button:hover {
   color: #45a049;
+}
+
+.background-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }

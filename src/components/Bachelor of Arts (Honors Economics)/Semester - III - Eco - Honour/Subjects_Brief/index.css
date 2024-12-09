@@ -5,6 +5,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   margin: 2rem auto;
   max-width: 1000px;
+  position: relative;
 }
 
 .subjects-brief-container h2 {
@@ -17,6 +18,8 @@
 
 .subjects-table {
   overflow-x: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .subjects-table table {
@@ -33,13 +36,14 @@
 }
 
 .subjects-table th {
-  background-color: #f5f5f5;
+  background-color: rgba(245, 245, 245, 0.9);
   font-weight: 600;
-  color: #333;
+  padding: 1.2rem 1rem;
 }
 
 .subjects-table td {
   color: #444;
+  transition: background-color 0.2s ease;
 }
 
 .subjects-table tr:hover {
@@ -79,15 +83,29 @@
 
 .subject-row {
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .subject-row:hover {
-  background-color: #f8f9fa;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: scale(1.01);
 }
 
 .subject-row:active {
   transform: translateY(0);
+}
+
+.background-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
 }
