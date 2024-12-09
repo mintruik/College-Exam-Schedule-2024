@@ -1,0 +1,30 @@
+.results {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  grid-column: 1 / -1;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .results {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+} 
