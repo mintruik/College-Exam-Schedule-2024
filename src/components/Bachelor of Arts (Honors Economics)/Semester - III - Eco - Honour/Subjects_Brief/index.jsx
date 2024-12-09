@@ -1,84 +1,53 @@
-import React, { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import rough from 'roughjs';
+import EconomicHistory from '../Economic History of India 1857-1947';
+import MacroEconomics from '../Macro Economics-I';
+import DevelopmentEconomics_I from '../Development Economics - I_';
+import WelfareEconomics from '../Welfare Economics-I';
+import StatisticsEconomics from '../Statistics for Economic Analysis-I';
 import './index.css';
 
 const SubjectsBrief = () => {
-  const navigate = useNavigate();
+  const [selectedSubject, setSelectedSubject] = useState(null);
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    if (canvasRef.current && containerRef.current) {
-      const rc = rough.canvas(canvasRef.current);
-      const container = containerRef.current;
-      
-      canvasRef.current.width = container.offsetWidth;
-      canvasRef.current.height = container.offsetHeight;
-      
-      // Draw decorative frame
-      rc.rectangle(10, 10, container.offsetWidth - 20, container.offsetHeight - 20, {
-        stroke: '#4CAF50',
-        strokeWidth: 2,
-        roughness: 1.5,
-        fill: 'rgba(76, 175, 80, 0.02)'
+  const handleSubjectClick = (code) => {
+    if (code === 'III.1') {
+      setSelectedSubject({
+        code: "III.1",
+        name: "Economic History of India 1857-1947",
+        component: <EconomicHistory />
       });
-
-      // Draw table decoration
-      const tableTop = 150;
-      rc.line(40, tableTop, container.offsetWidth - 40, tableTop, {
-        stroke: '#4CAF50',
-        strokeWidth: 2,
-        roughness: 1
+    } else if (code === 'III.2') {
+      setSelectedSubject({
+        code: "III.2",
+        name: "Macro Economics-I",
+        component: <MacroEconomics />
+      });
+    } else if (code === 'III.3') {
+      setSelectedSubject({
+        code: "III.3",
+        name: "Development Economics - I",
+        component: <DevelopmentEconomics_I />
+      });
+    } else if (code === 'III.4') {
+      setSelectedSubject({
+        code: "III.4",
+        name: "Welfare Economics-I",
+        component: <WelfareEconomics />
+      });
+    } else if (code === 'III.5') {
+      setSelectedSubject({
+        code: "III.5",
+        name: "Statistics for Economic Analysis-I",
+        component: <StatisticsEconomics />
       });
     }
-  }, []);
+  };
 
-  const subjects = [
-    {
-      code: "III.1",
-      name: "Economic History of India 1857-1947",
-      theory: 80,
-      internal: 20,
-      total: 100,
-      path: "/subjects/economic-history"
-    },
-    {
-      code: "III.2",
-      name: "Macro Economics-I",
-      theory: 80,
-      internal: 20,
-      total: 100,
-      path: "/subjects/macro-economics"
-    },
-    {
-      code: "III.3",
-      name: "Development Economics – I",
-      theory: 80,
-      internal: 20,
-      total: 100,
-      path: "/subjects/development-economics"
-    },
-    {
-      code: "III.4",
-      name: "Welfare Economics-I",
-      theory: 80,
-      internal: 20,
-      total: 100,
-      path: "/subjects/welfare-economics"
-    },
-    {
-      code: "III.5",
-      name: "Statistics for Economic Analysis-I",
-      theory: 80,
-      internal: 20,
-      total: 100,
-      path: "/subjects/statistics-analysis"
-    }
-  ];
-
-  const handleSubjectClick = (path) => {
-    navigate(path);
+  const handleCloseModal = () => {
+    setSelectedSubject(null);
   };
 
   return (
@@ -98,28 +67,62 @@ const SubjectsBrief = () => {
               </tr>
             </thead>
             <tbody>
-              {subjects.map((subject) => (
-                <tr 
-                  key={subject.code} 
-                  onClick={() => handleSubjectClick(subject.path)}
-                  className="subject-row"
-                >
-                  <td>{subject.code}</td>
-                  <td>{subject.name}</td>
-                  <td>{subject.theory}</td>
-                  <td>{subject.internal}</td>
-                  <td>{subject.total}</td>
-                </tr>
-              ))}
+              <tr onClick={() => handleSubjectClick('III.1')} className="subject-row">
+                <td>III.1</td>
+                <td>Economic History of India 1857-1947</td>
+                <td>80</td>
+                <td>20</td>
+                <td>100</td>
+              </tr>
+              <tr onClick={() => handleSubjectClick('III.2')} className="subject-row">
+                <td>III.2</td>
+                <td>Macro Economics-I</td>
+                <td>80</td>
+                <td>20</td>
+                <td>100</td>
+              </tr>
+              <tr onClick={() => handleSubjectClick('III.3')} className="subject-row">
+                <td>III.3</td>
+                <td>Development Economics – I</td>
+                <td>80</td>
+                <td>20</td>
+                <td>100</td>
+              </tr>
+              <tr onClick={() => handleSubjectClick('III.4')} className="subject-row">
+                <td>III.4</td>
+                <td>Welfare Economics-I</td>
+                <td>80</td>
+                <td>20</td>
+                <td>100</td>
+              </tr>
+              <tr onClick={() => handleSubjectClick('III.5')} className="subject-row">
+                <td>III.5</td>
+                <td>Statistics for Economic Analysis-I</td>
+                <td>80</td>
+                <td>20</td>
+                <td>100</td>
+              </tr>
               <tr className="total-row">
-                <td colSpan="4">Total</td>
+                <td colSpan="2">Total</td>
+                <td>400</td>
+                <td>100</td>
                 <td>500</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="semester-total">Total of I, II & III Semester = 1500</p>
       </div>
+
+      {selectedSubject && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={handleCloseModal}>×</button>
+            <div className="modal-body">
+              {selectedSubject.component}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
