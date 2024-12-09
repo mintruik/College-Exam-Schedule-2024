@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import rough from 'roughjs';
+import EconomicHistoryNotes from './Notes_';
 import './index.css';
 
 const EconomicHistory = () => {
   const navigate = useNavigate();
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
+  const [showNotes, setShowNotes] = useState(false);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -75,68 +77,82 @@ const EconomicHistory = () => {
     navigate('/');
   };
 
+  const toggleNotes = () => {
+    setShowNotes(!showNotes);
+  };
+
   return (
     <div className="course-container" ref={containerRef}>
       <canvas ref={canvasRef} className="background-canvas" />
       <button onClick={handleBack} className="back-button">
         ← Back to Subjects
       </button>
-      <header className="course-header">
-        <h1>III.1 ECONOMIC HISTORY OF INDIA: 1857 – 1947</h1>
-        <div className="course-meta">
-          <div className="meta-item">
-            <span>Max. Marks:</span>
-            <span>100</span>
-          </div>
-          <div className="meta-item">
-            <span>Time:</span>
-            <span>3 Hrs.</span>
-          </div>
-          <div className="meta-item">
-            <span>Written Exam:</span>
-            <span>80</span>
-          </div>
-          <div className="meta-item">
-            <span>Internal Assessment:</span>
-            <span>20</span>
-          </div>
-        </div>
-      </header>
-
-      <section className="course-content">
-        <div className="units">
-          {units.map((unit, index) => (
-            <div key={index} className="unit">
-              <h2>{unit.title}</h2>
-              <p>{unit.content}</p>
+      
+      <div className="content-wrapper">
+        <header className="course-header">
+          <h1>III.1 ECONOMIC HISTORY OF INDIA: 1857 – 1947</h1>
+          <button onClick={toggleNotes} className="notes-toggle-button">
+            {showNotes ? 'Hide Notes' : 'Show Notes'}
+          </button>
+          <div className="course-meta">
+            <div className="meta-item">
+              <span>Max. Marks:</span>
+              <span>100</span>
             </div>
-          ))}
-        </div>
+            <div className="meta-item">
+              <span>Time:</span>
+              <span>3 Hrs.</span>
+            </div>
+            <div className="meta-item">
+              <span>Written Exam:</span>
+              <span>80</span>
+            </div>
+            <div className="meta-item">
+              <span>Internal Assessment:</span>
+              <span>20</span>
+            </div>
+          </div>
+        </header>
 
-        <div className="note-section">
-          <h3>Note:</h3>
-          <ul>
-            <li>Nine questions would be set in all.</li>
-            <li>Question No. 1 based on the entire syllabus, would be compulsory. It would contain eight short answer questions of two marks each.</li>
-            <li>There would be two questions (16 marks each) from each of four units.</li>
-            <li>Candidates would be required to attend five questions (one compulsory and selecting one from each unit).</li>
-          </ul>
-        </div>
+        {showNotes ? (
+          <EconomicHistoryNotes />
+        ) : (
+          <section className="course-content">
+            <div className="units">
+              {units.map((unit, index) => (
+                <div key={index} className="unit">
+                  <h2>{unit.title}</h2>
+                  <p>{unit.content}</p>
+                </div>
+              ))}
+            </div>
 
-        <div className="readings-section">
-          <h3>Suggested Readings:</h3>
-          <ul>
-            {suggestedReadings.map((book, index) => (
-              <li key={index}>
-                <span className="author">{book.author}</span>
-                <span className="separator">:</span>
-                <span className="title">{book.title}</span>
-                <span className="publisher">{book.publisher}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+            <div className="note-section">
+              <h3>Note:</h3>
+              <ul>
+                <li>Nine questions would be set in all.</li>
+                <li>Question No. 1 based on the entire syllabus, would be compulsory. It would contain eight short answer questions of two marks each.</li>
+                <li>There would be two questions (16 marks each) from each of four units.</li>
+                <li>Candidates would be required to attend five questions (one compulsory and selecting one from each unit).</li>
+              </ul>
+            </div>
+
+            <div className="readings-section">
+              <h3>Suggested Readings:</h3>
+              <ul>
+                {suggestedReadings.map((book, index) => (
+                  <li key={index}>
+                    <span className="author">{book.author}</span>
+                    <span className="separator">:</span>
+                    <span className="title">{book.title}</span>
+                    <span className="publisher">{book.publisher}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+      </div>
     </div>
   );
 };

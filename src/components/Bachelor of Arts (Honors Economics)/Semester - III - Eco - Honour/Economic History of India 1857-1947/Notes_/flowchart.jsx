@@ -1,0 +1,211 @@
+export const unit1Flowcharts = {
+  whyStudy: [
+    "Why Study Economic History?",
+    "         ↓",
+    "📖 Learn from Past → Understand Economic Growth & Decline",
+    "         ↓",
+    "⚠️ Find Mistakes → Avoid Repeating Errors",
+    "         ↓",
+    "🛠️ Policy Making → Create Better Economic Policies",
+    "         ↓",
+    "💸 British Impact → Understand Economic Exploitation",
+    "         ↓",
+    "🇮🇳 National Pride → Learn India's Struggles & Achievements"
+  ],
+  problems: [
+    "Problems in Interpreting India's Past",
+    "         ↓",
+    "📊 No Proper Data → Limited Stats During British Rule",
+    "         ↓",
+    "📝 Biased Records → Favored Colonial Rule",
+    "         ↓",
+    "🤷 Conflicting Views → Indian vs British Historians",
+    "         ↓",
+    "💼 Focus on British Gain → Policies for British Benefit",
+    "         ↓",
+    "📂 Scattered Info → No Unified Rural or State Data"
+  ],
+  economy1947: [
+    "Indian Economy (1947) → Stagnant Economy 📉",
+    "         ↓",
+    "💸 Exploitation → Drain of Wealth (Dadabhai Naoroji)",
+    "         ↓",
+    "🌾 Agriculture:",
+    "    → Heavy Taxes (Zamindari System) → Poverty",
+    "    → Famines → Food Shortages",
+    "         ↓",
+    "🏭 Industrial Backwardness:",
+    "    → Supplier of Raw Materials Only",
+    "    → ❌ No Industries → Imports Increased",
+    "         ↓",
+    "🚂 Infrastructure: Built for British Trade, Not Indian Welfare",
+    "         ↓",
+    "😞 Unemployment & Poverty → Widespread Suffering"
+  ],
+  midCentury: [
+    "Indian Economy (Mid-19th Century)",
+    "         ↓",
+    "🌾 Agrarian Economy → Heavy Taxes on Farmers",
+    "         ↓",
+    "🧵 Decline of Handicrafts → British Machine-Made Goods",
+    "         ↓",
+    "🏭 Deindustrialization → Loss of Artisans & Local Industries",
+    "         ↓",
+    "💰 Cash Crops → Indigo, Jute, Cotton → Food Shortages",
+    "         ↓",
+    "📜 Land Revenue Systems:",
+    "    🕵️‍♂️ Zamindari → Landlords Collected Taxes",
+    "    🧑‍🌾 Ryotwari → Farmers Paid Directly",
+    "    🏘️ Mahalwari → Village-Based Tax System"
+  ],
+  eastIndia: [
+    "East India Company 🏴",
+    "         ↓",
+    "⚔️ Key Battles:",
+    "    → Plassey (1757) → British Gained Bengal 🛡️",
+    "    → Buxar (1764) → Full British Control ⚔️",
+    "         ↓",
+    "📜 Expansion Policies:",
+    "    → ❌ Doctrine of Lapse → Annex States Without Heirs",
+    "    → 🛡️ Subsidiary Alliance → Accept British Troops"
+  ],
+  administration: [
+    "🏢 Centralized Rule → Strong British Control",
+    "         ↓",
+    "👮 Police & Military → Suppressed Revolts",
+    "         ↓",
+    "⚖️ Judiciary → Replaced Indian Laws",
+    "         ↓",
+    "🛠️ Civil Services → Jobs Reserved for British Officers",
+    "         ↓",
+    "💰 Economic Exploitation → Policies for British Profit"
+  ],
+  impact: [
+    "Impact of British Policies",
+    "         ↓",
+    "😞 Poverty → Widespread Economic Inequality",
+    "         ↓",
+    "🌾 Famines → Food Shortages (e.g., Bengal Famine 1943)",
+    "         ↓",
+    "🔗 Loss of Self-Sufficiency → Dependency on British Imports",
+    "         ↓",
+    "🚂 Infrastructure → Built for British Trade, Not Indian Benefit",
+    "         ↓",
+    "✊ Rise of Nationalism → Exploitation → Freedom Movements:",
+    "    → 🇮🇳 Leaders like Gandhi & Indian National Congress (INC)"
+  ],
+  summary: [
+    "1. Why Study Economic History? → Learn, Fix Mistakes, Policy, Pride 📚",
+    "2. Problems in Interpreting Past → No Data, Bias, British-Focused 🕰️🔍",
+    "3. Eve of Independence → Poverty, Famines, Industrial Backwardness 🇮🇳⚠️",
+    "4. Mid-19th Century → Agrarian Economy, Cash Crops, Land Systems 🚜📉",
+    "5. Growth of Empire → Plassey, Buxar, Doctrine of Lapse, Admin 👑🇬🇧",
+    "6. Impact of Policies → Poverty, Famines, Infrastructure, Nationalism ⚠️🌍"
+  ]
+};
+
+export const unit2Flowcharts = {
+  traditional: [
+    "Traditional Village Economy",
+    "         ↓",
+    "   Self-Sufficient → Shift to British Needs",
+    "         ↓",
+    "   New Land Revenue Systems",
+    "       📝 Zamindari",
+    "       🌾 Ryotwari",
+    "       🏘️ Mahalwari",
+    "         ↓",
+    "   Focus on Cash Crops",
+    "         ↓",
+    "   Collapse of Local Industries",
+    "         ↓",
+    "   Money-Based Economy (Taxes in Cash)",
+    "         ↓",
+    "      Poverty & Dependency"
+  ],
+  british: [
+    "British Industrial Needs",
+    "         ↓",
+    "Demand for Raw Materials → Cash Crops Grown",
+    "         ↓",
+    "Land Revenue Systems Forced Farmers → Grow Cash Crops",
+    "         ↓",
+    "Infrastructure (Railways, Ports) → Export-Oriented",
+    "         ↓",
+    "Heavy Taxation → Need for Cash Income"
+  ],
+  cashCrops: [
+    "Farmers Grow Cash Crops",
+    "         ↓",
+    "Reduced Food Production → Famines 🌾",
+    "         ↓",
+    "Low Income for Farmers → Poverty 💸",
+    "         ↓",
+    "Rural Inequality → Landlords Richer, Farmers Poorer",
+    "         ↓",
+    "British Profits Increase → Indian Economy Drained 💼"
+  ],
+  landLoss: [
+    "Small Farmers Lose Land 🏚️",
+    "         ↓",
+    "Debt Trap → Land Seized by Moneylenders 💸",
+    "         ↓",
+    "Farmers Become Landless Labourers 👥",
+    "         ↓",
+    "Demand for Cheap Labour → Needed on Cash Crop Fields 🌾",
+    "         ↓",
+    "Low Wages → Extreme Poverty 😔",
+    "         ↓",
+    "Labor Exploitation → No Rights or Protection"
+  ],
+  wages: [
+    "Surplus Labour (Too Many Workers)",
+    "         ↓",
+    "Wages Fall ⬇️",
+    "         ↓",
+    "High Prices of Essentials (Food, Goods) ⬆️",
+    "         ↓",
+    "Farmers Cannot Afford Basic Needs 😞",
+    "         ↓",
+    "British Traders Control Markets → Unfair Prices 📉",
+    "         ↓",
+    "Poverty Among Farmers Increases 💸"
+  ],
+  debt: [
+    "Heavy Tax Burden → Farmers Borrow from Moneylenders 💰",
+    "         ↓",
+    "High Interest Rates (Unfair) → Debt Increases 📈",
+    "         ↓",
+    "Farmers Unable to Repay Debt",
+    "         ↓",
+    "Land Taken Away → Landless Farmers 🏚️",
+    "         ↓",
+    "Endless Debt Cycle → Poverty Continues 😔",
+    "         ↓",
+    "Laws Favor Moneylenders → No Protection for Farmers ⚖️"
+  ],
+  summary: [
+    "1. Transformation of Villages 🏡 → British Economic Policies → Cash Crops Focus",
+    "2. Commercialization of Agriculture 🌾 → Causes → Consequences (Famines, Poverty)",
+    "3. Agricultural Labour 👨‍🌾 → Landless Farmers → Cheap Labor, Exploitation",
+    "4. Wages & Prices 📊 → Falling Wages, Rising Prices → Farmer Suffering",
+    "5. Rural Indebtedness 💸 → Debt Cycle → Land Loss → Poverty"
+  ]
+};
+
+export const flowchartTitles = {
+  whyStudy: 'Why Study Economic History',
+  problems: 'Problems in Interpretation',
+  economy1947: 'Economy in 1947',
+  midCentury: 'Mid-19th Century Economy',
+  eastIndia: 'East India Company',
+  administration: 'British Administration',
+  impact: 'Impact of British Rule',
+  summary: 'Quick Summary',
+  traditional: 'Traditional Village Economy Changes',
+  british: 'British Industrial Impact',
+  cashCrops: 'Cash Crops Impact',
+  landLoss: 'Land Loss Process',
+  wages: 'Wages and Prices Impact',
+  debt: 'Debt Cycle'
+};
