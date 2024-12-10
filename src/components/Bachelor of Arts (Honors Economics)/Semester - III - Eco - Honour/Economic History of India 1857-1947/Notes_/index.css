@@ -1,61 +1,72 @@
 .notes-container {
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 25px;
+  background: linear-gradient(145deg, #ffffff, #f0f7f0);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .notes-container h2 {
   color: #1a5928;
   text-align: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 3px solid #4CAF50;
-  font-size: 1.8rem;
-  font-weight: 700;
+  margin-bottom: 2.5rem;
+  padding: 15px 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 4px solid #4CAF50;
+  background: linear-gradient(to right, transparent, #e8f5e9, transparent);
 }
 
 .units-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .unit-section {
   background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.unit-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(76,175,80,0.15);
 }
 
 .unit-button {
   width: 100%;
-  padding: 18px 24px;
-  background: #4CAF50;
+  padding: 20px 30px;
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
   border: none;
-  text-align: left;
-  font-size: 1.2rem;
-  font-weight: 600;
+  border-radius: 20px 20px 0 0;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .unit-button:hover {
-  background: #3d8b40;
+  background: linear-gradient(135deg, #388E3C, #2E7D32);
+  letter-spacing: 0.5px;
 }
 
 .unit-button.active {
-  background: #2d682f;
+  background: linear-gradient(135deg, #3d8b40, #2d682f);
 }
 
 .unit-notes {
-  padding: 24px;
+  padding: 30px;
   background: white;
   border: 1px solid #e9ecef;
   border-top: none;
@@ -72,31 +83,50 @@
   line-height: 1.8;
   color: #333;
   font-size: 1.1rem;
+  transition: all 0.2s ease;
 }
 
 /* Main topics styling */
 .unit-notes li.main-point {
-  font-weight: 600;
+  font-size: 1.3rem;
   color: #1a5928;
-  padding-top: 20px;
-  font-size: 1.2rem;
-  border-bottom: 2px solid #e9ecef;
-  margin-bottom: 10px;
+  font-weight: 700;
+  padding: 20px 15px;
+  margin: 15px 0;
+  background: linear-gradient(to right, #f1f8e9, #ffffff);
+  border-radius: 12px;
+  border-left: 5px solid #4CAF50;
+  transition: all 0.3s ease;
+}
+
+.unit-notes li.main-point:hover {
+  transform: translateX(10px);
+  background: linear-gradient(to right, #e8f5e9, #ffffff);
 }
 
 /* Sub-points styling */
 .unit-notes li.sub-point {
-  padding-left: 25px;
+  padding: 12px 20px 12px 40px;
   position: relative;
-  color: #444;
+  font-size: 1.1rem;
+  color: #424242;
+  margin: 8px 0;
+  transition: all 0.3s ease;
 }
 
 .unit-notes li.sub-point::before {
   content: "•";
   color: #4CAF50;
   position: absolute;
-  left: 10px;
+  left: 20px;
   font-weight: bold;
+  font-size: 1.4em;
+}
+
+.unit-notes li.sub-point:hover {
+  background: #f5f5f5;
+  border-radius: 8px;
+  transform: translateX(5px);
 }
 
 /* Highlight important keywords */
@@ -104,62 +134,156 @@
 .unit-notes li b {
   color: #1a5928;
   font-weight: 600;
+  background: #f0fff0;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 /* Add subtle hover effect on sub-points */
 .unit-notes li.sub-point:hover {
   background-color: #f8fff8;
-  border-radius: 4px;
-  padding-left: 30px;
+  border-radius: 8px;
+  padding-left: 35px;
+  transform: translateX(5px);
+}
+
+/* Fun notes styling */
+.unit-notes li:contains("Fun Note:") {
+  background: #f1f8e9;
+  border-left: 4px solid #4CAF50;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: #2e7d32;
   transition: all 0.3s ease;
 }
 
-/* Section headers */
-.unit-notes li:first-child {
-  font-size: 1.3rem;
-  color: #1a5928;
-  font-weight: 700;
-  border-bottom: 2px solid #4CAF50;
-  margin-bottom: 15px;
+.unit-notes li:contains("Fun Note:"):hover {
+  background: #e8f5e9;
+  transform: translateX(10px);
 }
 
-/* Toggle icon styling */
-.toggle-icon {
-  font-size: 1.5rem;
-  font-weight: bold;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+/* Quick Revision section */
+.unit-notes li:contains("Quick Revision") {
+  background: #f5f5f5;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 25px 0;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+}
+
+/* Flowchart section */
+.flowcharts-section {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.flowchart-block {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.flowchart-heading {
+  color: #2e7d32;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #4caf50;
+}
+
+.flowchart-content {
+  font-family: monospace;
+  white-space: pre;
+}
+
+.flowchart-line {
+  margin: 5px 0;
+  font-family: monospace;
+  white-space: pre;
+  color: #333;
+}
+
+.fun-note {
+  margin-top: 15px;
+  padding: 10px;
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  border-radius: 4px;
+  font-style: italic;
+  color: #2e7d32;
+}
+
+.flowchart-separator {
+  margin: 20px 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #4caf50, transparent);
+}
+
+/* Emoji styling */
+.unit-notes li:contains("🌟"),
+.unit-notes li:contains("✨"),
+.unit-notes li:contains("💡") {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #1b5e20;
+  padding: 20px;
+  background: linear-gradient(to right, #f1f8e9, #ffffff, #f1f8e9);
+  border-radius: 12px;
+  margin: 20px 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .notes-container {
     padding: 15px;
+    margin: 10px;
   }
 
   .unit-button {
+    font-size: 1.1rem;
     padding: 15px 20px;
+  }
+
+  .unit-notes li.main-point {
     font-size: 1.1rem;
   }
 
-  .unit-notes {
-    padding: 15px;
-  }
-
-  .unit-notes li {
+  .unit-notes li.sub-point {
     font-size: 1rem;
   }
 }
 
-.flowchart-heading {
-  color: #1a5928;
-  font-size: 1.1rem;
-  margin: 10px 0;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #4CAF50;
+/* Toggle button styling */
+.flowchart-toggle-button {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(76,175,80,0.2);
+}
+
+.flowchart-toggle-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76,175,80,0.3);
+  background: linear-gradient(135deg, #388E3C, #2E7D32);
+}
+
+/* Section dividers */
+.section-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #4CAF50, transparent);
+  margin: 30px 0;
 }

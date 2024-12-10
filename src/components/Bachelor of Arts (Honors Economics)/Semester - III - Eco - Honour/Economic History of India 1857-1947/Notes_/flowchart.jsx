@@ -193,6 +193,138 @@ export const unit2Flowcharts = {
   ]
 };
 
+export const unit3Flowcharts = {
+  industrialDev: [
+    "1. Industrial Development & De-Industrialization Flowchart",
+    "Traditional Handicrafts → Dominated India's economy",
+    "          ↓",
+    "British Goods → Machine-made products flooded Indian markets",
+    "          ↓",
+    "Raw Material Export → Cotton, Jute sent to Britain → Finished goods sold back to India",
+    "          ↓",
+    "De-Industrialization → Collapse of Indian traditional industries",
+    "          ↓",
+    "Job Loss → Artisans became unemployed or turned to agriculture",
+    "",
+    "Fun Note: \"India's artisans fell, British factories rose!\""
+  ],
+  
+  modernIndustries: [
+    "2. Emergence of Modern Industries",
+    "Textile Industry → Cotton in Bombay 🧵, Jute in Bengal 🪢",
+    "          ↓",
+    "Iron & Steel Industry → TISCO (1907) → Tata Steel → Backbone of infrastructure 🛠️",
+    "          ↓",
+    "Cement Industry → Driven by infrastructure demands (railways, buildings) 🏗️",
+    "          ↓",
+    "Coal Industry → Powered railways and factories → Key areas: Bengal, Jharkhand ⛏️",
+    "          ↓",
+    "Tea Industry → Assam plantations → Export-oriented → Profits for Britain 🍵",
+    "",
+    "Fun Note: \"Modern industries grew, but British hands held the profits!\""
+  ],
+  
+  economicImpact: [
+    "3. De-Industrialization & Economic Impact",
+    "British Policies → Focused on raw material extraction for British factories",
+    "          ↓",
+    "Handicraft Decline → Unable to compete with cheaper British machine-made goods",
+    "          ↓",
+    "Poverty & Job Loss → Artisans forced to turn into agricultural laborers",
+    "          ↓",
+    "Economic Drain → Wealth shifted to Britain → India stagnated economically",
+    "",
+    "Fun Note: \"Economic policies favored British growth, while India stagnated!\""
+  ]
+};
+
+export const unit4Flowcharts = {
+  foreignCapital: [
+    "1. Foreign Capital in Colonial India 💸",
+    "British Capital Invested",
+    "↓",
+    "Main Areas of Investment: Railways 🚂, Plantations 🌱, Mining 🛠️",
+    "↓",
+    "Limited Indian Ownership",
+    "↓",
+    "Impact: Economic Exploitation 📉",
+    "India as raw material supplier → Finished goods consumer",
+    "No long-term industrial growth in India",
+    "👣 Fun Fact: \"British capital built railways, but India saw little return! 🚂💸\""
+  ],
+  
+  foreignTrade: [
+    "2. Foreign Trade Growth & Composition 🌍💼",
+    "Increased Foreign Trade 📈",
+    "↓",
+    "Exports: Raw Materials → Cotton, Jute, Tea (to Britain)",
+    "↓",
+    "Imports: Finished Goods → Textiles, Machinery, Iron (from Britain)",
+    "👣 Fun Fact: \"India exported raw materials, imported finished goods — a one-way street! 🚢🔄\""
+  ],
+  
+  guidedUnderDevelopment: [
+    "3. Guided Under-Development Under British Rule ⚠️📉",
+    "Colonial Economic Policies: Focus on extraction of resources for British benefit.",
+    "↓",
+    "Stunted Growth: India remained dependent on agriculture and raw material extraction",
+    "↓",
+    "No Industrialization: Colonial Economy → No local industry growth",
+    "👣 Fun Fact: \"India's economy guided towards under-development for British profit! ⚠️💰\""
+  ],
+  
+  provincialFinance: [
+    "4. Evolution of Provincial Finance 💵🏛️",
+    "Revenue Collection: Land taxes 🏡",
+    "↓",
+    "British Control: Finance controlled by Britain for their needs",
+    "↓",
+    "Limited Public Welfare Investment: Funds directed to military & British interests",
+    "👣 Fun Fact: \"British taxes were high, welfare was low! 💸⚖️\""
+  ],
+  
+  publicDebt: [
+    "5. Public Debt – Nature & Problems 💳🛑",
+    "Debt Rise: Loans from Britain for railways, military, etc.",
+    "↓",
+    "Impact on India:",
+    "Debt burden on Indian citizens",
+    "Economic stagnation for India, while British interests grew",
+    "👣 Fun Fact: \"Public debt ballooned while India’s development deflated! 💰📉\""
+  ],
+  
+  drainOfWealth: [
+    "6. Drain of Wealth from India 💸➡️🇬🇧",
+    "Wealth Drain: India’s resources extracted for British profit",
+    "↓",
+    "Trade Surplus: Britain exported more from India than imported",
+    "↓",
+    "Excessive Taxation: Taxation burden on India to pay debt",
+    "↓",
+    "Exploitation of Resources: British profits soared, India grew poorer",
+    "👣 Fun Fact: \"India worked hard, but Britain took the profits! 💸😢\""
+  ],
+  
+  quickRevision: [
+    "Quick Revision Flow",
+    "1. Foreign Capital 💸",
+    "- British invested in railways, plantations, mining.",
+    "- No long-term growth in India.",
+    "2. Foreign Trade 🌍",
+    "- Exports: Raw materials (cotton, tea, etc.).",
+    "- Imports: Finished goods (textiles, machinery).",
+    "- One-way trade: Raw materials out, finished goods in!",
+    "3. Guided Under-Development ⚠️",
+    "- Colonial policies focused on exploitation, not industrialization.",
+    "4. Provincial Finance 💵",
+    "- High taxes on land, no investment in public welfare.",
+    "5. Public Debt 💳",
+    "- Rising debt from borrowing for military, infrastructure.",
+    "6. Drain of Wealth 💸➡️🇬🇧",
+    "- Economic drain: Resources flowed out to Britain."
+  ]
+};
+
 export const flowchartTitles = {
   whyStudy: 'Why Study Economic History',
   problems: 'Problems in Interpretation',
@@ -207,5 +339,15 @@ export const flowchartTitles = {
   cashCrops: 'Cash Crops Impact',
   landLoss: 'Land Loss Process',
   wages: 'Wages and Prices Impact',
-  debt: 'Debt Cycle'
+  debt: 'Debt Cycle',
+  industrialDev: '1. Industrial Development & De-Industrialization',
+  modernIndustries: '2. Emergence of Modern Industries',
+  economicImpact: '3. De-Industrialization & Economic Impact',
+  foreignCapital: 'Foreign Capital in Colonial India',
+  foreignTrade: 'Foreign Trade Growth & Composition',
+  guidedUnderDevelopment: 'Guided Under-Development',
+  provincialFinance: 'Evolution of Provincial Finance',
+  publicDebt: 'Public Debt – Nature & Problems',
+  drainOfWealth: 'Drain of Wealth from India',
+  quickRevision: 'Quick Revision'
 };
